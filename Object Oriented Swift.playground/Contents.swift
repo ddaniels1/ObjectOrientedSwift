@@ -14,12 +14,35 @@ coordinate1.x
 struct Point {
     let x:Int
     let y: Int
+    
+    ///  Returns the surrounding points in range of
+    ///  the current one.
+    func points(inRange range: Int = 1) -> [Point]{
+        var results: [Point] = []
+        
+        let lowerBoundOfXRange = x - range
+        let upperBoundOfXRange = x + range
+        
+        let lowerBoundOfYRange = y - range
+        let upperBoundOfYRange = y + range
+        
+        for xCoordinate in lowerBoundOfXRange...upperBoundOfXRange{
+            
+            for yCoordinate in lowerBoundOfYRange...upperBoundOfYRange {
+                let coordinatePoint = Point(x: xCoordinate, y: yCoordinate)
+                results.append(coordinatePoint)
+            }}
+        
+        return results
+    }
 }
+
+Point(x: 1, y: 2)
 
 // Creating an INSTANCE of the struct. Special sort of function.
 let coordinatePoint = Point(x: 0, y: 0)
 
-
+coordinatePoint.points()
 
 struct User {
     let name: String
@@ -27,3 +50,24 @@ struct User {
 }
 // Code challenge
 
+struct Book {
+    let title: String
+    let author: String
+    let price: Double
+}
+
+let myBook = Book(title: "Animal Farm", author: "George Orwell", price: 6.00)
+
+
+struct Person {
+    let firstName: String
+    let lastName: String
+    
+    func fullName() -> Person {
+        var nameOfPerson: Person = []
+        
+        
+        return nameOfPerson
+        
+    }
+}
